@@ -7,6 +7,7 @@ build/
 /mars/captures
 obj/
 
+*.so
 *.swp
 *.pyc
 xcuserdata
