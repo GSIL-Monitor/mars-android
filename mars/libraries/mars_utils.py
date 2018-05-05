@@ -20,7 +20,7 @@ APPLE_COPY_EXT_FILES = {"stn/proto/longlink_packer.h": "longlink_packer.h",
         "stn/proto/shortlink_packer.h": "shortlink_packer.h",
         "stn/proto/shortlink_packer.cc": "shortlink_packer.cc.rewriteme",
         }
-        
+
 WIN_COPY_EXT_FILES = {"stn/proto/longlink_packer.h": "longlink_packer.h",
         "stn/proto/longlink_packer.cc": "longlink_packer.cc.rewriteme",
         "stn/proto/stnproto_logic.h": "stnproto_logic.h",
@@ -177,7 +177,7 @@ def get_revision(path):
     revision = os.popen("git rev-parse --short HEAD").read()
     if revision:
         return "git-" + revision[:len(revision)-1]
-    
+
     return ""
 
 
@@ -246,24 +246,26 @@ def check_ndk_env():
 
     if "Windows" == system:
         delimiter = ";"
-        
+
     path_array = path_env.split(delimiter)
 
     ndk_path = None
     for s in path_array:
         if os.path.isfile(os.path.join(s, "ndk-build")) or os.path.isfile(os.path.join(s, "ndk-build.cmd")):
             ndk_path = s
+            break
 
     if not ndk_path:
         print("Error: ndk does not exist or you do not set it into system environment.")
         return False
 
+    print ndk_path
     if not os.path.isfile(os.path.join(ndk_path, "source.properties")):
         print("Error: source.properties does not exist, make sure ndk's version>=r11c")
         return False
 
     ndk_revision = None
-    
+
     f = open(os.path.join(ndk_path, "source.properties"))
     line = f.readline()
     while line:
@@ -285,12 +287,12 @@ def check_ndk_env():
 
     print("Error: make sure ndk's version >= r11c")
     return False
-    
+
 
 def check_env():
 
     return check_python_version() and check_ndk_env()
-    
+
 
 
 def main(save_path, tag):
