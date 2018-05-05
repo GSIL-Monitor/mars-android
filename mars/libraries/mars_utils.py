@@ -259,7 +259,6 @@ def check_ndk_env():
         print("Error: ndk does not exist or you do not set it into system environment.")
         return False
 
-    print ndk_path
     if not os.path.isfile(os.path.join(ndk_path, "source.properties")):
         print("Error: source.properties does not exist, make sure ndk's version>=r11c")
         return False
