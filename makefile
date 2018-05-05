@@ -6,3 +6,6 @@ sync_android:
 
 sync_log:
 	bash script/sync_log.sh
+
+start_server:
+	bash script/start_server.sh
