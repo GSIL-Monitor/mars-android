@@ -251,9 +251,10 @@ def check_ndk_env():
 
     ndk_path = None
     for s in path_array:
+        print 'path: %s' % s
         if os.path.isfile(os.path.join(s, "ndk-build")) or os.path.isfile(os.path.join(s, "ndk-build.cmd")):
             ndk_path = s
-            break
+    ndk_path = '/Users/wangxiangqing/.android-sdk-macosx/android-ndk-r11c'
 
     if not ndk_path:
         print("Error: ndk does not exist or you do not set it into system environment.")

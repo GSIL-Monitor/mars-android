@@ -592,14 +592,12 @@ void LongLink::__RunReadWrite(SOCKET _sock, ErrCmdType& _errtype, int& _errcode,
         
         ScopedLock lock(mutex_);
         
-        if (!lstsenddata_.empty()) {
-            sel.Write_FD_SET(_sock);
-        }
+        if (!lstsenddata_.empty()) sel.Write_FD_SET(_sock);
         
         lock.unlock();
         
         int retsel = sel.Select(10 * 60 * 1000);
-
+        
         if (kNone != disconnectinternalcode_) {
             xwarn2(TSF"task socket close sock:%0, user disconnect:%1, nread:%_, nwrite:%_", _sock, disconnectinternalcode_, socket_nread(_sock), socket_nwrite(_sock)) >> close_log;
             goto End;

@@ -79,6 +79,7 @@ dependencies {
     compile 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-4'
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
     if (useLocalMarsWrapper) {
         compile project(':wrapper')
 

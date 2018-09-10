@@ -77,6 +77,20 @@ public class SampleApplicaton extends Application {
         // Auto bind all activity event
         ActivityEvent.bind(getApplicationContext());
 
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Log.i(TAG, "start mars begin");
+                        BenchMark bench = new BenchMark();
+                        bench.StartOkHttpTest();
+                        Log.i(TAG, "start mars success");
+                        // your code here
+                    }
+                },
+                5000
+        );
+
         Log.i(TAG, "application started");
     }
 
