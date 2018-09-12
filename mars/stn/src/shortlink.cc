@@ -301,7 +301,8 @@ void ShortLink::__RunReadWrite(SOCKET _socket, int& _err_type, int& _err_code, C
 
 
 	std::map<std::string, std::string> headers;
-	headers[http::HeaderFields::KStringHost] = _conn_profile.host;
+	// headers[http::HeaderFields::KStringHost] = _conn_profile.host;
+	headers[http::HeaderFields::KStringHost] = std::string("api-staging.zjurl.cn");
 
 	if (_conn_profile.proxy_info.IsValid() && mars::comm::kProxyHttp == _conn_profile.proxy_info.type
 		&& !_conn_profile.proxy_info.username.empty() && !_conn_profile.proxy_info.password.empty()) {
