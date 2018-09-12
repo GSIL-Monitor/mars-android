@@ -7,5 +7,8 @@ sync_android:
 sync_log:
 	bash script/sync_log.sh
 
+rm_log:
+	adb shell rm -rf /sdcard/marssample/log/*
+
 start_server:
 	bash script/start_server.sh
