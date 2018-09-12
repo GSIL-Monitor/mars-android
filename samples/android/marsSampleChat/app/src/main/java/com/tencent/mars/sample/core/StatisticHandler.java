@@ -59,10 +59,11 @@ public class StatisticHandler extends BusinessHandler {
                 case BaseConstants.FLOW_CMDID: {
                     String flowStr = new String(pushMessage.buffer, Charset.forName("UTF-8"));
                     String[] flowsizes = flowStr.split(",");
+                    Log.i(TAG, "flowStr= " + flowStr);
                     wifiRecvFlow += Integer.valueOf(flowsizes[0]);
                     wifiSendFlow += Integer.valueOf(flowsizes[1]);
-                    mobileRecvFlow += Integer.valueOf(flowsizes[2]);
-                    mobileSendFlow += Integer.valueOf(flowsizes[3]);
+                    // mobileRecvFlow += Integer.valueOf(flowsizes[2]);
+                    // mobileSendFlow += Integer.valueOf(flowsizes[3]);
                 }
                 return true;
                 case BaseConstants.SDTRESULT_CMDID: {

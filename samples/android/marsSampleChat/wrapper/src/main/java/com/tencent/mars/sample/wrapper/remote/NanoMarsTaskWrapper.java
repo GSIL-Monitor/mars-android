@@ -64,7 +64,8 @@ public abstract class NanoMarsTaskWrapper<T extends MessageNano, R extends Messa
         try {
             Log.d(TAG, "decode response buffer, [%s]", MemoryDump.dumpHex(buf));
 
-            response = MessageNano.mergeFrom(response, buf);
+            // FIXME: does not parse pb
+            // response = MessageNano.mergeFrom(response, buf);
             onPostDecode(response);
             return StnLogic.RESP_FAIL_HANDLE_NORMAL;
 

@@ -31,7 +31,7 @@ import javax.ws.rs.core.MediaType;
 public class WebAppTestFramework {
 
     public static InputStream post(String path, byte[] data) {
-        return post("http://localhost:8080/", path, data);
+        return post("http://localhost:80/", path, data);
     }
 
     public static InputStream post(String url, String path, byte[] data) {

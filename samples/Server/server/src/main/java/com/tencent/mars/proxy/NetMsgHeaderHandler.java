@@ -178,7 +178,7 @@ public class NetMsgHeaderHandler extends ChannelInboundHandlerAdapter {
      */
     private InputStream doHttpRequest(String path, InputStream data) {
         final Client client = ClientBuilder.newClient(new ClientConfig());
-        final InputStream response = client.target("http://localhost:8080/")
+        final InputStream response = client.target("http://localhost:80/")
                 .path(path)
                 .request(MediaType.APPLICATION_OCTET_STREAM)
                 .post(Entity.entity(data, MediaType.APPLICATION_OCTET_STREAM), InputStream.class);

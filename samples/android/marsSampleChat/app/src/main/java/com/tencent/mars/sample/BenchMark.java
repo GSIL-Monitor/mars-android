@@ -108,8 +108,8 @@ public class BenchMark {
             if(task_suc < 500) {
                 task_time = System.currentTimeMillis();
                 HelloTaskWrapper task = new HelloTaskWrapper();
-                // MarsServiceProxy.send(task.setHttpRequest("127.0.0.1:8080", "/"));
-                MarsServiceProxy.send(task.setHttpRequest("www.baidu.com", "/"));
+                MarsServiceProxy.send(task.setHttpRequest("api-staging.zjurl.cn", "/settings?len=10"));
+                // MarsServiceProxy.send(task.setHttpRequest("10.92.189.222", "/").setCmdID(8));
             } else {
                 String msg = "final mars total:" + (curr - start_time) + ", avg:" + (suc_time)/(double)task_suc + ",rate:" + task_suc/(double)task_cnt + ", count:" + task_cnt + ", suc:" + task_suc;
                 Log.e(TAG, msg);
@@ -126,7 +126,8 @@ public class BenchMark {
 
         HelloTaskWrapper task = new HelloTaskWrapper();
         task_time = System.currentTimeMillis();
-        MarsServiceProxy.send(task.setHttpRequest("www.baidu.com", "/"));
+        MarsServiceProxy.send(task.setHttpRequest("api-staging.zjurl.cn", "/settings?len=10"));
+        // MarsServiceProxy.send(task.setHttpRequest("10.92.189.222", "/").setCmdID(8));
     }
 
     public void StartOkHttpTest() {

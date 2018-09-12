@@ -83,12 +83,12 @@ public class SampleApplicaton extends Application {
                     public void run() {
                         Log.i(TAG, "start mars begin");
                         BenchMark bench = new BenchMark();
-                        bench.StartOkHttpTest();
+                        bench.StartMarsTest();
                         Log.i(TAG, "start mars success");
                         // your code here
                     }
                 },
-                5000
+                3000
         );
 
         Log.i(TAG, "application started");
