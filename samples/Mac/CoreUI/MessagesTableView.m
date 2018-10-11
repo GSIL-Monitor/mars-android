@@ -25,6 +25,7 @@
 #import "CGITask.h"
 #import "NetworkService.h"
 #import "DemoEntryController.h"
+#import "LogUtil.h"
 @interface MessagesTableView() 
 
 @end

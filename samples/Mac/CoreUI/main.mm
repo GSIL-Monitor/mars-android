@@ -41,5 +41,6 @@ int main(int argc, const char * argv[]) {
 #endif
     appender_open(kAppednerAsync, [[libraryDirectory stringByAppendingString:@"/log/"] UTF8String], "Test", "");
 
+    NSLog(@"------ main start ------");
     return NSApplicationMain(argc, argv);
 }

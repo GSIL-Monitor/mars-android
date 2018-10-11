@@ -40,32 +40,35 @@
 }
 
 - (IBAction)onButtonClick:(id)sender {
-    CGITask *helloCGI = [[CGITask alloc] initAll:ChannelType_All AndCmdId:kSayHello AndCGIUri:@"/mars/hello" AndHost:@"www.marsopen.cn"];
+    CGITask *helloCGI = [[CGITask alloc] initAll:ChannelType_ShortConn AndCmdId:kSayHello AndCGIUri:@"/settings?len=10240" AndHost:@"61.240.155.219"];
     [[NetworkService sharedInstance] startTask:helloCGI ForUI:self];
+    NSLog(@"------- ping sender ------");
 }
 
 - (NSData*)requestSendData {
     HelloRequest* helloRequest = [[[[HelloRequest builder] setUser:@"anonymous"] setText:@"Hello world!"] build];
     NSData* data = [helloRequest data];
+    NSLog(@"--------- request send data ------");
     return data;
 }
 
 - (int)onPostDecode:(NSData*)responseData {
-    HelloResponse* helloResponse = [HelloResponse parseFromData:responseData];
-    if ([helloResponse hasErrmsg]) {
-        LOG_INFO(kModuleViewController, @"hello response: %@", helloResponse.errmsg);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:helloResponse.errmsg];
-            [alert runModal];
-        });
-    }
-    
-    return helloResponse.retcode == 0 ? 0 : -1;
+   // HelloResponse* helloResponse = [HelloResponse parseFromData:responseData];
+   // if ([helloResponse hasErrmsg]) {
+    //    LOG_INFO(kModuleViewController, @"hello response: %@", helloResponse.errmsg);
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        NSAlert *alert = [[NSAlert alloc] init];
+     //       [alert setMessageText:helloResponse.errmsg];
+     //       [alert runModal];
+     //   });
+    //}
+    NSLog(@"-------- response data --------");
+    return 0;
+    // return helloResponse.retcode == 0 ? 0 : -1;
 }
 
 - (int)onTaskEnd:(uint32_t)tid errType:(uint32_t)errtype errCode:(uint32_t)errcode {
-    
+    NSLog(@"--------- on task end --------");
     return 0;
 }
 
